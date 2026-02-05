@@ -1,14 +1,15 @@
 package algorithm.recursion_38;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-// 没有重复项数字的全排列
-// 测试链接 : https://leetcode.cn/problems/permutations/
-public class Permutations {
+// 有重复项数组的去重全排列
+// 测试链接 : https://leetcode.cn/problems/permutations-ii/
+public class C4_PermutationWithoutRepetition {
 
-
-    public static List<List<Integer>> permute(int[] nums) {
+    public static List<List<Integer>> permuteUnique(int []nums) {
         List<List<Integer>> ans = new ArrayList<>();
         f(nums, 0, ans);
         return ans;
@@ -23,7 +24,12 @@ public class Permutations {
             ans.add(cur);
             return;
         }
-        for (int j=i; j<nums.length; j++) {
+        Set<Integer> set = new HashSet<>();
+        for (int j = i; j < nums.length; j++) {
+            if (set.contains(nums[j])) {
+                continue;
+            }
+            set.add(nums[j]);
             swap(nums, i, j);
             f(nums, i + 1, ans);
             swap(nums, i, j);
@@ -37,10 +43,10 @@ public class Permutations {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3, 4};
-        List<List<Integer>> ans = permute(nums);
-        for (List<Integer> cur: ans) {
-            System.out.println(cur);
-        }
+        int[] nums = {1, 2, 3, 2};
+        List<List<Integer>> ans = permuteUnique(nums);
+        System.out.println(ans);
     }
 }
+
+

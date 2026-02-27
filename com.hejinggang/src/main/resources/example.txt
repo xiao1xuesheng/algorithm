@@ -1,0 +1,3 @@
+hahahah
+heheheHello, World!
+This is a file writer example.

@@ -1,0 +1,6 @@
+平时遇到的一些常用代码
+比如生产者 消费者 涉及到线程的代码
+比如ThreadLocal
+比如Collections的应用
+比如try-with-resources的应用
+比如线程池的应用等等
